@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 #nav-bar {
+  position: fixed;
   background-color: #00a087;
   color: #e8fdff;
   width: 100%;
@@ -16,7 +17,7 @@
 #nav-bar  span.header {
   font-size: 2rem;
   line-height: 85px;
-  font-weight: 100 !important;
+  font-weight: 100;
   margin-left: 10px;
   height: 100%;
   vertical-align: bottom;
