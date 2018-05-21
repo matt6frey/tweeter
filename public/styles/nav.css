@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#nav-bar {
+  background-color: #00a087;
+  color: #e8fdff;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#nav-bar .logo {
+  width:80px;
+  height: 80px;
+}
+
+#nav-bar  span.header {
+  font-size: 2rem;
+  line-height: 85px;
+  font-weight: 100 !important;
+  margin-left: 10px;
+  height: 100%;
+  vertical-align: bottom;
+}
