@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+article.tweet {
+  width: 100%;
+  margin: 10px 0;
+  border:  solid 1px #ccc;
+  border-radius: 7px;
+}
+
+article.tweet header {
+    background-color: #f3f3f3;
+    padding: 0.5rem;
+    position: relative;
+}
+
+article.tweet header h2 {
+  position: absolute;
+  display: inline;
+  color: #657d84; 
+  margin: 0 0 0 10px;
+}
+
+article.tweet header span {
+  float:right;
+  display:inline-block;
+  color: #999;
+  font-size: small;
+}
+
+article.tweet p {
+  padding: 1rem 0.5rem;
+}
+
+article.tweet footer {
+  border-top: solid 1px #f3f3f3;
+  position: relative;
+}
+
+article.tweet footer p {
+  padding: 0 0.5rem;
+  font-size: small;
+  display: inline-block;
+}
+
+article.tweet footer ul {
+  visibility: hidden;
+  float: right;
+  margin: 0.75rem 0.5rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+article.tweet footer ul li {
+  margin: 0 0.25rem;
+  display: inline;
+}
+
+article.tweet footer ul li {
+  color: #61c6b8;
+  cursor: pointer;
+}
+
+/*hover effects*/
+
+article.tweet:hover header {
+  backougrnd-color: #efefef;
+}
+
+article.tweet:hover header span {
+  color: #666;
+}
+
+article.tweet:hover footer ul {
+  visibility: visible;
+}
