@@ -23,3 +23,20 @@
   height: 100%;
   vertical-align: bottom;
 }
+
+#nav-bar button {
+   color: #00a087;
+  background-color: #e8fdff;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  border: solid 1px #000;
+  display inline;
+  float: right;
+  padding: 1rem 0.5rem;
+  margin: 0.75rem  
+}
+
+#nav-bar button:hover {
+  background-color: #fff;
+  color: #000;
+}

@@ -9,6 +9,7 @@ section.new-tweet {
     border: solid 1px #ccc;
     border-radius: 7px;
     padding:1rem;
+    display: none;
 }
 
 section.new-tweet h2 {

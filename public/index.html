@@ -28,6 +28,7 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button><span class="fas fa-edit"></span> Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -46,39 +47,7 @@
     </main>
 
   <script src="scripts/composer-char-counter.js"></script>
-  <script>
-    $( document ).ready(function () {
-
-    var tweets = loadTweets();
-
-    $('form[name="new-tweet"]').on('submit', function (e) {
-      e.preventDefault(); // Stop regular form submission.
-      var date = new Date();
-      if ($('textarea').val() !== '' &&  $('textarea').val().length <= 140) {
-        $.ajax({
-          url: '/tweets/',
-          method: 'POST',
-          data: $(this).serialize(),
-          success: function (response) {
-            renderTweets(response);
-            return;
-          }
-        });
-      } else {
-        var err;
-        if ($('textarea').val() === '') {
-          err = "Enter your tweet before sending.";
-        } else {
-          err = "Your tweet is greater than 140 characters.";
-        }
-        alert(err);
-        $('textarea').css({'border-color':'red', 'color':'red'});
-        setTimeout(function () { $('textarea').css({'border-color':'inherit', 'color': 'inherit'}); }, 2000);
-      }
-    });
-
-  });
-  </script>
+  <script src="scripts/operations.js"></script>
 
   </body>
 </html>
