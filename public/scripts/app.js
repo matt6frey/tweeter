@@ -6,13 +6,13 @@
 
 function getTweetDate(date) {
   var today = new Date();
-  days = Math.round((today - date) / (1000 * 60 * 60 * 24));
+  var days = Math.round((today - date) / (1000 * 60 * 60 * 24));
   var message = '';
 
   if(days <= 1) {
     date = new Date(date);
-    isMorning = (date.getHours() > 12) ? "PM" : "AM";
-    time = (date.getHours()-12) + ":" + date.getMinutes() + " " + isMorning;
+    var isMorning = (date.getHours() > 12) ? "PM" : "AM";
+    var time = (date.getHours()-12) + ":" + date.getMinutes() + " " + isMorning;
     message = "Today at " + time;
   } else {
     message = days + " days ago";
@@ -23,10 +23,8 @@ function getTweetDate(date) {
 
 function createTweetElement (data) {
   // create Article.
-  console.log(typeof data);
   data = (typeof data === "string") ? JSON.parse(data) : data;
   var article = $('<article>');
-  console.log(article);
   article.addClass('tweet');
 
   //Create header
