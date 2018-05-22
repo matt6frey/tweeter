@@ -11,8 +11,10 @@ function getTweetDate(date) {
 
   if(days <= 1) {
     date = new Date(date);
-    var isMorning = (date.getHours() > 12) ? "PM" : "AM";
-    var time = (date.getHours()-12) + ":" + date.getMinutes() + " " + isMorning;
+    var isMorning = (date.getHours() > 11) ? "PM" : "AM";
+    var hours = ((date.getHours()-12) === 0) ? 12 : date.getHours()-12;
+    var minutes = (date.getMinutes() < 10) ? "0" + date.getMinutes() : date.getMinutes();
+    var time = hours + ":" + minutes + " " + isMorning;
     message = "Today at " + time;
   } else {
     message = days + " days ago";
