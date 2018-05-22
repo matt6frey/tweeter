@@ -32,9 +32,6 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section id="content-feed">
-
-      </section>
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets/" name="new-tweet">
@@ -43,59 +40,43 @@
           <span class="counter">140</span>
         </form>
       </section>
+      <section id="content-feed">
+
+      </section>
     </main>
 
   <script src="scripts/composer-char-counter.js"></script>
   <script>
     $( document ).ready(function () {
-        const data = [
-      {
-        "user": {
-          "name": "Newton",
-          "avatars": {
-            "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-            "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-            "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-          },
-          "handle": "@SirIsaac"
-        },
-        "content": {
-          "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-      },
-      {
-        "user": {
-          "name": "Descartes",
-          "avatars": {
-            "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-            "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-            "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-          },
-          "handle": "@rd" },
-        "content": {
-          "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-      },
-      {
-        "user": {
-          "name": "Johann von Goethe",
-          "avatars": {
-            "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-            "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-            "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-          },
-          "handle": "@johann49"
-        },
-        "content": {
-          "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-        },
-        "created_at": 1461113796368
-      }
-    ];
 
-    renderTweets(data);
+    var tweets = loadTweets();
+
+    $('form[name="new-tweet"]').on('submit', function (e) {
+      e.preventDefault(); // Stop regular form submission.
+      var date = new Date();
+      if ($('textarea').val() !== '' &&  $('textarea').val().length <= 140) {
+        $.ajax({
+          url: '/tweets/',
+          method: 'POST',
+          data: $(this).serialize(),
+          success: function (response) {
+            renderTweets(response);
+            return;
+          }
+        });
+      } else {
+        var err;
+        if ($('textarea').val() === '') {
+          err = "Enter your tweet before sending.";
+        } else {
+          err = "Your tweet is greater than 140 characters.";
+        }
+        alert(err);
+        $('textarea').css({'border-color':'red', 'color':'red'});
+        setTimeout(function () { $('textarea').css({'border-color':'inherit', 'color': 'inherit'}); }, 2000);
+      }
+    });
+
   });
   </script>
 

@@ -60,7 +60,25 @@ function createTweetElement (data) {
 }
 
 function renderTweets(tweets) {
-  tweets.forEach(function (tweet) {
-    $("#content-feed").append(createTweetElement(tweet));
+  if(tweets instanceof Array) {
+    tweets.forEach(function (tweet) {
+      $("#content-feed").after(createTweetElement(tweet));
+    });
+  } else {
+    $("#content-feed").after(createTweetElement(tweets));
+  }
+}
+
+function loadTweets() {
+  var allTweets;
+  $.ajax({
+    url: "/tweets",
+    method:"GET",
+    success: function (res) {
+      allTweets = Object.values(res);
+      renderTweets(allTweets); // Returns an array of the tweet objects
+      return;
+    }
   });
 }
+
