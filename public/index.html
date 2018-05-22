@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -34,23 +34,6 @@
     <main class="container">
       <section id="content-feed">
 
-      <article class="tweet">
-        <header>
-          <img src="images/smiley.jpg" alt="user profile image.">
-          <h2>Bill Fields</h2>
-          <span>@MrFields</span>
-        </header>
-        <p>This is my tweet foo'!</p>
-        <footer>
-          <p>10 days ago</p>
-            <ul>
-              <li><b class="fas fa-flag"></b></li>
-              <li><b class="fas fa-retweet"></b></li>
-              <li><b class="fas fa-heart"></b></li>
-            </ul>
-        </footer>
-      </article>
-
       </section>
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
@@ -63,5 +46,58 @@
     </main>
 
   <script src="scripts/composer-char-counter.js"></script>
+  <script>
+    $( document ).ready(function () {
+        const data = [
+      {
+        "user": {
+          "name": "Newton",
+          "avatars": {
+            "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+            "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+            "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+          },
+          "handle": "@SirIsaac"
+        },
+        "content": {
+          "text": "If I have seen further it is by standing on the shoulders of giants"
+        },
+        "created_at": 1461116232227
+      },
+      {
+        "user": {
+          "name": "Descartes",
+          "avatars": {
+            "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+            "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+            "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+          },
+          "handle": "@rd" },
+        "content": {
+          "text": "Je pense , donc je suis"
+        },
+        "created_at": 1461113959088
+      },
+      {
+        "user": {
+          "name": "Johann von Goethe",
+          "avatars": {
+            "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+            "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+            "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+          },
+          "handle": "@johann49"
+        },
+        "content": {
+          "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+        },
+        "created_at": 1461113796368
+      }
+    ];
+
+    renderTweets(data);
+  });
+  </script>
+
   </body>
 </html>

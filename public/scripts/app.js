@@ -4,3 +4,65 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+function getTweetDate(date) {
+  var today = new Date();
+  days = Math.round((today - date) / (1000 * 60 * 60 * 24));
+  var message = '';
+
+  if(days <= 1) {
+    date = new Date(date);
+    isMorning = (date.getHours() > 12) ? "PM" : "AM";
+    time = (date.getHours()-12) + ":" + date.getMinutes() + " " + isMorning;
+    message = "Today at " + time;
+  } else {
+    message = days + " days ago";
+  }
+
+  return message;
+}
+
+function createTweetElement (data) {
+  // create Article.
+  console.log(typeof data);
+  data = (typeof data === "string") ? JSON.parse(data) : data;
+  var article = $('<article>');
+  console.log(article);
+  article.addClass('tweet');
+
+  //Create header
+  var header = $('<header></header>');
+  header.append($('<img>').attr('src', data.user.avatars.small).attr('alt', 'The avatar of ' + data.user.handle));
+  header.append($('<h2></h2>').text(data.user.name));
+  header.append($('<span></span>').text(data.user.handle));
+
+  article.append(header);
+  article.append($('<p></p>').text(data.content.text)); // Add tweet content
+
+  //Create footer
+  var footer = $('<footer></footer>');
+  var tweetDate = $('<p></p>');
+  var actions = $('<ul></ul>');
+  var actionsIconsArray = ['fas fa-flag', 'fas fa-retweet', 'fas fa-heart']; // Classes for li elements
+
+  var dateToString = getTweetDate(data.created_at);
+
+  footer.append(tweetDate.text(dateToString));
+
+  for (var classItem of actionsIconsArray) {
+    var li = $('<li></li>'); // Create Li
+    var b = $('<b></b>').addClass(classItem); //create B.class element
+    li.append(b); // Add B to Li.
+    actions.append(li); // add Li to Ul
+  }
+
+  footer.append(actions); // Add Ul
+  article.append(footer); // Add footer
+
+  return article;
+}
+
+function renderTweets(tweets) {
+  tweets.forEach(function (tweet) {
+    $("#content-feed").append(createTweetElement(tweet));
+  });
+}

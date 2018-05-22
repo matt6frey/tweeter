@@ -63,7 +63,7 @@ article.tweet footer ul li {
 /*hover effects*/
 
 article.tweet:hover header {
-  backougrnd-color: #efefef;
+  background-color: #efefef;
 }
 
 article.tweet:hover header span {
@@ -72,4 +72,8 @@ article.tweet:hover header span {
 
 article.tweet:hover footer ul {
   visibility: visible;
+}
+
+article.tweet:hover footer ul li:hover {
+  color:#32a087;
 }
