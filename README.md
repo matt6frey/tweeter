@@ -4,9 +4,9 @@ Tweeter is a simple, SPA that closely resembles Twitter. Users can post tweets a
 
 ## Screenshot
 
-<img src="https://github.com/matt6frey/tweeter/blob/master/docs/initial-tweeter.png" width="270px" height="auto" align="left" style="width: 49%; float:left;">
-<img src="https://github.com/matt6frey/tweeter/blob/master/docs/adding-a-tweet.png" width="290px" align="center" height="auto"  style="width:49%; float: left;">
-<img src="https://github.com/matt6frey/tweeter/blob/master/docs/posted-tweet.png" width="280px" align="right" style="width:49%; float: left;">
+<img src="https://github.com/matt6frey/tweeter/blob/master/docs/initial-tweeter.png" width="270px" height="auto" align="left" style="width: 49%; float:left; display: ilnline;">
+<img src="https://github.com/matt6frey/tweeter/blob/master/docs/adding-a-tweet.png" width="290px" align="center" height="auto"  style="width:49%; float: left; display: ilnline;">
+<img src="https://github.com/matt6frey/tweeter/blob/master/docs/posted-tweet.png" width="280px" align="right" style="width:49%; float: left; display: ilnline;">
 
 
 ## Getting Started
