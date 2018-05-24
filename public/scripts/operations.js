@@ -28,7 +28,7 @@ $( document ).ready(function () {
         err = "Your tweet is greater than 140 characters.";
       }
       alert(err);
-      $('textarea').css({'border-color':'red', 'color':'red'}); // Visual cues
+      $('textarea').css({'border-color':'red', 'color':'red'}); // Visual cues for errors
       setTimeout(function () { $('textarea').css({'border-color':'inherit', 'color': 'inherit'}); }, 2000);
     }
   });

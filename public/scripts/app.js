@@ -50,9 +50,9 @@ function createTweetElement (data) {
 
   footer.append(tweetDate.text(dateToString));
 
-  for (var classItem of actionsIconsArray) {
-    var li = $('<li></li>'); // Create Li
-    var b = $('<b></b>').addClass(classItem); //create B.class element
+  for (let classItem of actionsIconsArray) {
+    let li = $('<li></li>'); // Create Li
+    let b = $('<b></b>').addClass(classItem); //create B.class element
     li.append(b); // Add B to Li.
     actions.append(li); // add Li to Ul
   }
