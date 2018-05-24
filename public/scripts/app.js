@@ -10,6 +10,7 @@ function getTweetDate(date) {
   var message = '';
 
   if(days <= 1) {
+    // returns time of day tweet was created
     date = new Date(date);
     var isMorning = (date.getHours() > 11) ? "PM" : "AM";
     var hours = ((date.getHours()-12) === 0) ? 12 : date.getHours()-12;
@@ -17,6 +18,7 @@ function getTweetDate(date) {
     var time = hours + ":" + minutes + " " + isMorning;
     message = "Today at " + time;
   } else {
+    // Returns time, in days, since it was created.
     message = days + " days ago";
   }
 
