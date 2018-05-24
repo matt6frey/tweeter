@@ -8,7 +8,6 @@ $( document ).ready(function () {
 
   $('form[name="new-tweet"]').on('submit', function (e) {
     e.preventDefault(); // Stop regular form submission.
-    var date = new Date();
     if ($('textarea').val() !== '' &&  $('textarea').val().length <= 140) { // Check for errors
       $.ajax({
         url: '/tweets/',

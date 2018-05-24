@@ -1,0 +1,206 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+}
+
+main.container {
+  display: block;
+  margin: 0 auto;
+  width: 450px;
+  height: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  position: relative;
+  top: 86px;
+}
+
+/*
+ * Nav CSS
+ */
+#nav-bar {
+  position: fixed;
+  z-index: 5;
+  background-color: #00a087;
+  color: #e8fdff;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+#nav-bar .logo {
+  width: 80px;
+  height: 80px;
+}
+#nav-bar span.header {
+  font-size: 2rem;
+  line-height: 85px;
+  font-weight: 100;
+  margin-left: 10px;
+  height: 100%;
+  vertical-align: bottom;
+}
+#nav-bar button {
+  color: #00a087;
+  background-color: #e8fdff;
+  font-size: 1.25rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  border: solid 1px #000;
+  display: inline;
+  float: right;
+  padding: 1rem 0.5rem;
+  margin: 0.75rem;
+  -moz-transition: background 0.2s ease-in;
+  -webkit-transition: background 0.2s ease-in;
+  -ms-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+  -moz-transition: color 0.2s ease-in;
+  -webkit-transition: color 0.2s ease-in;
+  -ms-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+#nav-bar button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/*
+ * Tweets CSS
+ */
+article.tweet {
+  width: 100%;
+  margin: 10px 0;
+  border: solid 1px #ccc;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px;
+}
+article.tweet header {
+  background-color: #f3f3f3;
+  padding: 0.5rem;
+  position: relative;
+  -moz-transition: backround 0.2s ease-in;
+  -webkit-transition: backround 0.2s ease-in;
+  -ms-transition: backround 0.2s ease-in;
+  transition: backround 0.2s ease-in;
+}
+article.tweet header h2 {
+  position: absolute;
+  display: inline;
+  color: #657d84;
+  margin: 0 0 0 10px;
+}
+article.tweet header span {
+  float: right;
+  display: inline-block;
+  color: #999;
+  font-size: small;
+  -moz-transition: color 0.2s ease-in;
+  -webkit-transition: color 0.2s ease-in;
+  -ms-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+article.tweet p {
+  padding: 1rem 0.5rem;
+}
+article.tweet footer {
+  border-top: solid 1px #f3f3f3;
+  position: relative;
+}
+article.tweet footer p {
+  padding: 0 0.5rem;
+  font-size: small;
+  display: inline-block;
+}
+article.tweet footer ul {
+  visibility: hidden;
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease-in;
+  -webkit-transition: opacity 0.2s ease-in;
+  -ms-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  float: right;
+  margin: 0.75rem 0.5rem;
+  padding: 0;
+  list-style-type: none;
+}
+article.tweet footer ul li {
+  margin: 0 0.25rem;
+  display: inline;
+}
+article.tweet footer ul li {
+  color: #61c6b8;
+  cursor: pointer;
+  -moz-transition: backround 0.2s ease-in;
+  -webkit-transition: backround 0.2s ease-in;
+  -ms-transition: backround 0.2s ease-in;
+  transition: backround 0.2s ease-in;
+}
+
+/*hover effects*/
+article.tweet:hover header {
+  background-color: #efefef;
+}
+article.tweet:hover header span {
+  color: #666;
+}
+article.tweet:hover footer ul {
+  visibility: visible;
+  opacity: 1;
+}
+article.tweet:hover footer ul li:hover {
+  color: #32a087;
+}
+
+/*
+ * New Tweet CSS
+ */
+section.new-tweet {
+  background-color: #eee;
+  border: solid 1px #ccc;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px;
+  padding: 1rem;
+  display: none;
+}
+section.new-tweet h2 {
+  border-bottom: solid 1px #333;
+  margin-top: 0;
+}
+section.new-tweet textarea {
+  width: 100%;
+  padding: 0.5rem;
+  color: #333;
+}
+section.new-tweet span.counter {
+  float: right;
+  font-style: oblique;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=all.css.map */
