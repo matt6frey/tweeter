@@ -66,10 +66,10 @@ function createTweetElement (data) {
 function renderTweets(tweets) {
   if(tweets instanceof Array) {
     tweets.forEach(function (tweet) {
-      $("#content-feed").after(createTweetElement(tweet));
+      $("#content-feed").prepend(createTweetElement(tweet));
     });
   } else {
-    $("#content-feed").after(createTweetElement(tweets));
+    $("#content-feed").prepend(createTweetElement(tweets));
   }
 }
 
