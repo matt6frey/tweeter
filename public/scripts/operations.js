@@ -16,6 +16,7 @@ $( document ).ready(function () {
         success: function (response) {
           renderTweets(response);
           $('textarea').val('');
+          $('.counter').text(140);
           return;
         }
       });
