@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const {MongoClient} = require("mongodb");
-const MDB_URI =  process.env.MDB_URI;
+const MDB_URI =  "mongodb://localhost:27017/tweeter";
+
+// const MDB_URI =  process.env.MDB_URI;
 
 var tweets;
 
