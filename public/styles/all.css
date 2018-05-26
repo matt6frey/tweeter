@@ -28,11 +28,17 @@ main.container {
   display: block;
   margin: 0 auto;
   width: 450px;
-  height: 100%;
+  min-height: 92vh;
   background-color: #fff;
   padding: 1rem;
   position: relative;
   top: 86px;
+}
+@media screen and (max-width: 449px) {
+  main.container {
+    width: 100%;
+    top: 78px;
+  }
 }
 
 /*
@@ -47,9 +53,21 @@ main.container {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+@media screen and (max-width: 376px) {
+  #nav-bar {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
 #nav-bar .logo {
   width: 80px;
   height: 80px;
+}
+@media screen and (max-width: 376px) {
+  #nav-bar .logo {
+    width: 40px;
+    height: 40px;
+  }
 }
 #nav-bar span.header {
   font-size: 2rem;
@@ -58,6 +76,12 @@ main.container {
   margin-left: 10px;
   height: 100%;
   vertical-align: bottom;
+}
+@media screen and (max-width: 376px) {
+  #nav-bar span.header {
+    font-size: 1.5rem;
+    line-height: 55px;
+  }
 }
 #nav-bar button {
   color: #00a087;
@@ -80,6 +104,11 @@ main.container {
   -webkit-transition: color 0.2s ease-in;
   -ms-transition: color 0.2s ease-in;
   transition: color 0.2s ease-in;
+}
+@media screen and (max-width: 376px) {
+  #nav-bar button {
+    font-size: 1rem;
+  }
 }
 #nav-bar button:hover {
   background-color: #fff;
@@ -112,6 +141,11 @@ article.tweet header h2 {
   display: inline;
   color: #657d84;
   margin: 0 0 0 10px;
+}
+@media screen and (max-width: 376px) {
+  article.tweet header h2 {
+    font-size: 1.15rem;
+  }
 }
 article.tweet header span {
   float: right;
@@ -147,6 +181,12 @@ article.tweet footer ul {
   padding: 0;
   list-style-type: none;
 }
+@media screen and (max-width: 449px), screen and (orientation: landscape) and (max-height: 769px) and (max-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) {
+  article.tweet footer ul {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 article.tweet footer ul li {
   margin: 0 0.25rem;
   display: inline;
@@ -158,6 +198,11 @@ article.tweet footer ul li {
   -webkit-transition: backround 0.2s ease-in;
   -ms-transition: backround 0.2s ease-in;
   transition: backround 0.2s ease-in;
+}
+@media screen and (max-width: 449px) {
+  article.tweet {
+    width: 100%;
+  }
 }
 
 /*hover effects*/

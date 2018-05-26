@@ -15,6 +15,37 @@ module.exports = function makeDataHelpers(db) {
       });
     },
 
+    // Like a tweet
+    toggleLike: function(likeStatus, callback) {
+        simulateDelay(() => {
+        // Update: increment by 1
+        console.log(likeStatus.status);
+        if(likeStatus.status === '') {
+        db.collection("tweets").update({ "user.name": likeStatus.name, "content.text": likeStatus.text }, { $inc: { "likes": 1 } }, function(err, res) {
+            if(err) {
+              console.log(err);
+            } else {
+              db.collection("tweets").find({ "user.name": likeStatus.name }).forEach((x) => {
+                console.log(x);
+              });
+              callback(null, true);
+            }
+          });
+        } else {
+          db.collection("tweets").update({ "user.name": likeStatus.name, "content.text": likeStatus.text }, { $inc: { "likes": -1 } }, function(err, res) {
+            if(err) {
+              console.log(err);
+            } else {
+              db.collection("tweets").find({ "user.name": likeStatus.name }).forEach((x) => {
+                console.log(x);
+              });
+              callback(null, true);
+            }
+          });
+        }
+      });
+      },
+
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
       simulateDelay(() => {
@@ -24,6 +55,7 @@ module.exports = function makeDataHelpers(db) {
         });
       });
     }
+
 
   };
 };

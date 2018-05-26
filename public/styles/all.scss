@@ -15,6 +15,17 @@ $tweet-bg: #f3f3f3;
 $tweet-header: #657d84;
 $tweet-span: #999;
 
+$smallSmartPhones: 449px;
+$ultraSmallSP: 376px;
+
+$tablet-wLandscape: 1025px;
+$tablet-hLandscape: 769px;
+
+$landscape: "orientation: landscape";
+$portrait:  "orientation: portrait";
+
+$pixelRatio: "-webkit-min-device-pixel-ratio: 2";
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -54,11 +65,16 @@ main.container {
   display: block;
   margin: 0 auto;
   width: 450px;
-  height: 100%;
+  min-height: 92vh;
   background-color: #fff;
   padding: 1rem;
   position: relative;
   top: 86px;
+
+  @media screen and (max-width: $smallSmartPhones) {
+    width: 100%;
+    top: 78px;
+  }
 }
 
 /*
@@ -75,9 +91,19 @@ main.container {
   padding-left: 2rem;
   padding-right: 2rem;
 
+  @media screen and (max-width: $ultraSmallSP) {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
   .logo {
     width:80px;
     height: 80px;
+
+    @media screen and (max-width: $ultraSmallSP) {
+      width:40px;
+      height: 40px;
+    }
   }
 
   span.header {
@@ -87,6 +113,11 @@ main.container {
     margin-left: 10px;
     height: 100%;
     vertical-align: bottom;
+
+    @media screen and (max-width: $ultraSmallSP) {
+      font-size: 1.5rem;
+      line-height: 55px;
+    }
   }
 
   button {
@@ -101,6 +132,11 @@ main.container {
     margin: 0.75rem;
     @include css-transition(background 0.2s ease-in);
     @include css-transition(color 0.2s ease-in);
+
+    @media screen and (max-width: $ultraSmallSP) {
+      font-size: 1rem;
+
+    }
   }
 
   button:hover {
@@ -124,6 +160,7 @@ article.tweet {
     padding: 0.5rem;
     position: relative;
     @include css-transition(backround 0.2s ease-in);
+
   }
 
   header h2 {
@@ -131,6 +168,10 @@ article.tweet {
     display: inline;
     color: $tweet-header;
     margin: 0 0 0 10px;
+
+    @media screen and (max-width: $ultraSmallSP) {
+      font-size: 1.15rem;
+    }
   }
 
   header span {
@@ -163,6 +204,11 @@ article.tweet {
     margin: 0.75rem 0.5rem;
     padding: 0;
     list-style-type: none;
+
+    @media screen and (max-width: $smallSmartPhones), screen and (#{$landscape}) and (max-height: $tablet-hLandscape) and (max-width: $tablet-wLandscape) and (#{$pixelRatio}) {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   footer ul li {
@@ -174,6 +220,10 @@ article.tweet {
     color: #61c6b8;
     cursor: pointer;
     @include css-transition(backround 0.2s ease-in);
+  }
+
+  @media screen and (max-width: $smallSmartPhones) {
+    width: 100%;
   }
 }
 

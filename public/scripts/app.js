@@ -44,7 +44,7 @@ function createTweetElement (data) {
   var footer = $('<footer></footer>');
   var tweetDate = $('<p></p>');
   var actions = $('<ul></ul>');
-  var actionsIconsArray = ['fas fa-flag', 'fas fa-retweet', 'fas fa-heart']; // Classes for li elements
+  var actionsIconsArray = ['fas fa-heart', 'fas fa-retweet', 'fas fa-flag']; // Classes for li elements
 
   var dateToString = getTweetDate(data.created_at);
 
@@ -53,6 +53,12 @@ function createTweetElement (data) {
   for (let classItem of actionsIconsArray) {
     let li = $('<li></li>'); // Create Li
     let b = $('<b></b>').addClass(classItem); //create B.class element
+    if ( classItem.search("heart") !== -1 ) {
+      b.attr("data-likes", data.likes);
+      b.attr("data-status", '');
+      let span = $("<span></span>").text(data.likes).css("margin-right", "5px");
+      li.prepend(span);
+    } // Add data-likes attr
     li.append(b); // Add B to Li.
     actions.append(li); // add Li to Ul
   }
@@ -63,13 +69,50 @@ function createTweetElement (data) {
   return article;
 }
 
+function toggleLike() {
+  // Adds likeTweet listener.
+  var text = $(this).closest('article').find('p').first().text();
+  var name = $(this).closest('article').find('h2').first().text();
+  var target = $(this);
+  var likes = $(this).data("likes");
+  var likeStatus = $(this).data("status");
+  console.log(likeStatus);
+  $.ajax({
+    url: '/tweets/like',
+    method: 'POST',
+    contentType: 'application/json; charset=utf-8',
+    dataType: "json",
+    traditional: true,
+    data: JSON.stringify({ name: name, text : text, status: likeStatus }),
+    success: function(res) {
+      if(res) {
+        if(likeStatus !== '') {
+          $(target).css('color', 'inherit');
+          $(target).data("likes", (likes - 1));
+          $(target).data("status", "");
+          $(target).closest('article').find('footer span').text(likes - 1);
+        } else {
+          $(target).css('color', '#bd0202');
+          $(target).data("likes", (likes + 1));
+          $(target).data("status", 'liked');
+          $(target).closest('article').find('footer span').text(likes + 1);
+        }
+      }
+    }
+  });
+}
+
 function renderTweets(tweets) {
   if(tweets instanceof Array) {
     tweets.forEach(function (tweet) {
       $("#content-feed").prepend(createTweetElement(tweet));
+      $('.fas.fa-heart').unbind('click'); // Prevent double event binding
+      $('.fas.fa-heart').on('click', $(this), toggleLike);
     });
   } else {
     $("#content-feed").prepend(createTweetElement(tweets));
+    $('.fas.fa-heart').unbind('click'); // Prevent double event binding.
+    $('.fas.fa-heart').on('click', $(this), toggleLike);
   }
 }
 

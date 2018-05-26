@@ -13,7 +13,8 @@ module.exports = function (db) {
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1461116232227
+    "created_at": 1461116232227,
+    "likes": 2999
   },
   {
     "user": {
@@ -27,7 +28,8 @@ module.exports = function (db) {
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1461113959088
+    "created_at": 1461113959088,
+    "likes": 100
   },
   {
     "user": {
@@ -42,7 +44,8 @@ module.exports = function (db) {
     "content": {
       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
     },
-    "created_at": 1461113796368
+    "created_at": 1461113796368,
+    "likes": 17
   }
 ];
 
