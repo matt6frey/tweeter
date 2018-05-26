@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const {MongoClient} = require("mongodb");
-const MDB_URI =  process.env.MONGODB_URI;
+const MDB_URI =  process.env.MDB_URI;
 
 var tweets;
 
