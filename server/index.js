@@ -3,7 +3,6 @@
 // Basic express setup:
 require('dotenv').config();
 
-console.log("MDB_URI: ", process.env.MDB_URI);
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
@@ -13,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const {MongoClient} = require("mongodb");
-//const MDB_URI = "mongodb://localhost:27017/tweeter";
-const MDB_URI = process.env.MDB_URI;
+//const MDB_URI = "mongodb://localhost:27017/tweeter"; // Access local DB with Mongo
+const MDB_URI = process.env.MDB_URI; // Using Mlabs MongoDB
 
 var tweets;
 
