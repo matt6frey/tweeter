@@ -1,4 +1,3 @@
-require('dotenv').config();
 "use strict";
 
 // Basic express setup:
@@ -8,13 +7,12 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
 
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const {MongoClient} = require("mongodb");
-const MDB_URI =  "mongodb://localhost:27017/tweeter";
-// const MDB_URI =  process.env.MONGODB_URI;
+//const MDB_URI = "mongodb://localhost:27017/tweeter";
+const MDB_URI = process.env.MBD_URI;
 
 var tweets;
 
@@ -36,7 +34,6 @@ MongoClient.connect(MDB_URI, (err, db) => {
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use("/tweets", tweetsRoutes);
-  app.use("/tweets/like", tweetsRoutes);
 
 
   app.listen(PORT, () => {
