@@ -9,15 +9,12 @@ module.exports = function makeDataHelpers(db) {
 
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
-      simulateDelay(() => {
         db.collection("tweets").insertOne(newTweet);
         callback(null, true);
-      });
     },
 
     // Like a tweet
     toggleLike: function(likeStatus, callback) {
-        simulateDelay(() => {
         // Update: increment by 1
         console.log(likeStatus.status);
         if(likeStatus.status === '') {
@@ -43,17 +40,14 @@ module.exports = function makeDataHelpers(db) {
             }
           });
         }
-      });
       },
 
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
-      simulateDelay(() => {
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
         var collection = db.collection("tweets").find().sort({ created_at: 1 }).toArray(function(err, res) {
           callback(null, res);
         });
-      });
     }
 
 
