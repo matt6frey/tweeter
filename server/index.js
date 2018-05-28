@@ -20,6 +20,7 @@ var tweets;
 MongoClient.connect(MDB_URI, (err, db) => {
   if (err) {
     console.error("Failed to connect to " , MDB_URI);
+    console.log(err);
     throw err;
   }
 
